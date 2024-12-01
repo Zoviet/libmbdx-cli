@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
 		} 
 		key.iov_len = sizeof(argv[3]);
 		key.iov_base = argv[3];
-		data.iov_len = sizeof(argv[4]);
+		data.iov_len = sizeof(char) * (strlen(argv[4]) + 1);
 		data.iov_base = argv[4];
 		rc = mdbx_put(txn, dbi, &key, &data, 0);
 		if (rc != MDBX_SUCCESS) {
